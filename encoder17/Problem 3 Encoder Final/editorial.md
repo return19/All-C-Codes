@@ -1,0 +1,5 @@
+This is a graph problem. We have to calculate the total number of connected components in it. In graph theory, a connected component (or just component) of an undirected graph is a subgraph in which any two vertices are connected to each other by paths, and which is connected to no additional vertices in the supergraph. 
+For example in the given below case, the total number of connected components is 3.
+explanation.jpeg
+
+It can be solved using either dfs or bfs. But since the carpet used for the head of the office is different, we have to calculate the cost of carpet for him and his connected nodes (employees) separately. For the rest of the employees, we apply dfs(or bfs), and calculate the total number of nodes(employees) in that connected component. Each new connected component resembles a new and different piece of carpet. We apply the rates for all the connected components, summarize them and this gives us the desired solution.

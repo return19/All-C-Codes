@@ -1,0 +1,65 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+char a[1000][1000];
+int n,m,t;
+string str="";
+int vis[1000][1000];
+stack <char> v;
+void dfs(char a[1000][1000],int i, int j)
+{
+    if(a[i][j]==v.top())
+    {
+        vis[i][j]=1;
+        v.pop();
+        cout<<a[i][j];
+        for(int row=i-1;row<=i+1&&row<n;row++)
+        {
+            for (int col=j-1;col<=j+1&&col<m; col++)
+            {
+                if (row>=0 && col>=0 && a[row][col]==v.top()&& vis[i][j]==0)
+                {
+                    dfs(a,row,col);
+
+                }
+            }
+        }
+    }
+    else vis[i][j]=1;
+}
+int main()
+{
+    cin>>t;
+    for(int x=0;x<t;x++)
+    {
+        cin>>n>>m;
+        v.push('L');
+        v.push('L');
+        v.push('E');
+        v.push('W');
+        v.push('Z');
+        v.push('Z');
+        v.push('I');
+        v.push('L');
+        v.push('L');
+        v.push('A');
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                cin>>a[i][j];
+                vis[i][j]=0;
+            }
+        }
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                dfs(a,i,j);
+            }
+        }
+
+    cout<<endl;
+    }
+}

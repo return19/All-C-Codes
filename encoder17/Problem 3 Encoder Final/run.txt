@@ -1,0 +1,1 @@
+problem_solution<1.in>sol.out | fc sol.out 1.out 
